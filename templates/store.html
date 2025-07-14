@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Bristle</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+</head>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fomantic-ui@2.9.4/dist/semantic.min.css">
+<script src="https://cdn.jsdelivr.net/npm/fomantic-ui@2.9.4/dist/semantic.min.js"></script>
+<body>
+
+<div class="ui container" style="margin-top: 3rem;">
+  
+  <!-- Store Info -->
+      <h1 class="ui header"> {{ .storeName }} </h1>
+  
+  <div class="ui form" style="margin-bottom: 3rem;">
+    <div class="field">
+      <label>Store ID</label>
+      <div class="ui action input">
+            <input type="password" value="{{ .storeId }}" readonly id="storeId">
+        <button class="ui icon button" onclick="toggleVisibility('storeId', this)">
+          <i class="eye icon"></i>
+        </button>
+        <button class="ui button" onclick="copyToClipboard('storeId')">Copy</button>
+      </div>
+    </div>
+    
+    <div class="field">
+      <label>API Endpoint</label>
+      <div class="ui action input">
+            <input type="text" value="https://bristlestore.onrender.com/api/" readonly id="apiEndpoint">
+        <button class="ui button" onclick="copyToClipboard('apiEndpoint')">Copy</button>
+      </div>
+    </div>
+  </div>
+  
+  <div class="ui divider" style="margin: 3rem 0;"></div>
+  
+  <!-- Add new entry -->
+  <div class="ui form" style="margin-bottom: 3rem;">
+    <div class="two fields">
+      <div class="field">
+        <input type="text" placeholder="key">
+      </div>
+      <div class="field">
+        <input type="text" placeholder="value">
+      </div>
+    </div>
+    <div class="ui button">Add</div>
+  </div>
+
+  <!-- Data entries -->
+  <div class="ui relaxed divided list">
+    <div class="item" style="padding: 1.5rem 0;">
+      <div class="ui grid">
+        <div class="four wide column">
+          <strong>username</strong>
+        </div>
+        <div class="ten wide column">
+          <code>"john_doe"</code>
+        </div>
+        <div class="two wide column">
+          <button class="ui mini button">Edit</button>
+        </div>
+      </div>
+    </div>
+    
+    <div class="item" style="padding: 1.5rem 0;">
+      <div class="ui grid">
+        <div class="four wide column">
+          <strong>age</strong>
+        </div>
+        <div class="ten wide column">
+          <code>25</code>
+        </div>
+        <div class="two wide column">
+          <button class="ui mini button">Edit</button>
+        </div>
+      </div>
+    </div>
+    
+    <div class="item" style="padding: 1.5rem 0;">
+      <div class="ui grid">
+        <div class="four wide column">
+          <strong>active</strong>
+        </div>
+        <div class="ten wide column">
+          <code>true</code>
+        </div>
+        <div class="two wide column">
+          <button class="ui mini button">Edit</button>
+        </div>
+      </div>
+    </div>
+    
+    <div class="item" style="padding: 1.5rem 0;">
+      <div class="ui grid">
+        <div class="four wide column">
+          <strong>settings</strong>
+        </div>
+        <div class="ten wide column">
+          <code>{"theme": "dark", "notifications": true}</code>
+        </div>
+        <div class="two wide column">
+          <button class="ui mini button">Edit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+function toggleVisibility(inputId, button) {
+  const input = document.getElementById(inputId);
+  const icon = button.querySelector('i');
+  
+  if (input.type === 'password') {
+    input.type = 'text';
+    icon.className = 'eye slash icon';
+  } else {
+    input.type = 'password';
+    icon.className = 'eye icon';
+  }
+}
+
+function copyToClipboard(inputId) {
+  const input = document.getElementById(inputId);
+  input.select();
+  input.setSelectionRange(0, 99999);
+  navigator.clipboard.writeText(input.value);
+}
+</script>
+
+<script src="script.js"></script>
+</body>
+</html>
