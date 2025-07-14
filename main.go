@@ -17,14 +17,17 @@ func main() {
 	router.Use(sessions.Sessions("mysession", store))
 
 	router.GET("/", func(ctx *gin.Context) {
-		ctx.HTML(http.StatusOK, "index.html", nil)
+		session := sessions.Default(ctx)
+		storeId := session.Get("storeid")
+		ctx.HTML(http.StatusOK, "index.html", gin.H{"storeId": storeId})
 	})
 
 	router.POST("/", homePostRouteFunc)
 
 	router.GET("/login", func(ctx *gin.Context) {
-		var _ = sessions.Default(ctx)
-		ctx.HTML(http.StatusOK, "login.html", nil)
+		session := sessions.Default(ctx)
+		storeId := session.Get("storeid")
+		ctx.HTML(http.StatusOK, "login.html", gin.H{"storeId": storeId})
 	})
 
 	router.GET("/store", func(ctx *gin.Context) {

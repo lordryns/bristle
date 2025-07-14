@@ -21,7 +21,15 @@
   <a class="item" href="/login">
     Login
   </a>
-    <div class="right menu">
+
+   <div class="right menu">
+  {{ if .storeId }}
+  <a class="item" href="/store">
+    Dashboard
+  </a>
+
+  {{ end }}
+ 
     <div class="item">
    <a class="item">
       Community
