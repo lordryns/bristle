@@ -33,7 +33,7 @@
     <div class="field">
       <label>API Endpoint</label>
       <div class="ui action input">
-            <input type="text" value="https://bristlestore.onrender.com/api/" readonly id="apiEndpoint">
+            <input type="text"  readonly id="apiEndpoint">
         <button class="ui button" onclick="copyToClipboard('apiEndpoint')">Copy</button>
       </div>
     </div>
@@ -135,8 +135,9 @@ function copyToClipboard(inputId) {
   input.setSelectionRange(0, 99999);
   navigator.clipboard.writeText(input.value);
 }
+
+document.getElementById("apiEndpoint").value = window.location.hostname + "/api/";
 </script>
 
-<script src="script.js"></script>
 </body>
 </html>
