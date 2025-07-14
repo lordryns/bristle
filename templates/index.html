@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Bristle</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Optional: favicon -->
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+</head>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fomantic-ui@2.9.4/dist/semantic.min.css">
+<script src="https://cdn.jsdelivr.net/npm/fomantic-ui@2.9.4/dist/semantic.min.js"></script>
+<body>
+<div class="ui secondary  menu">
+  <a class="active item">
+    Home
+  </a>
+  <a class="item" href="/login">
+    Login
+  </a>
+    <div class="right menu">
+    <div class="item">
+   <a class="item">
+      Community
+  </a>
+
+        </div>
+    </div>
+</div>
+
+    <!-- End of navbar, main content below -->
+<div class="ui vertical masthead center aligned segment" style="min-height: 60vh; display: flex; align-items: center;">
+  <div class="ui text container">
+    <h1 class="ui huge header">
+      Welcome to Bristle
+      <div class="sub header">Create a new data store</div>
+    </h1>
+    
+    <form class="ui form" style="margin-top: 3rem;">
+      <div class="field">
+        <div class="ui large action input">
+          <input type="text" placeholder="Enter the name of your store" style="border-radius: 4px 0 0 4px;">
+          <button class="ui large primary button" style="border-radius: 0 4px 4px 0;">Get Started</button>
+        </div>
+      </div>
+    </form>
+    
+    <p style="margin-top: 1rem; color: #999;">Want to access your already existing store? <a href="/login">Login</a> instead.</p>
+  </div>
+</div>
+
+<div class="ui vertical segment">
+  <div class="ui text container">
+    <h2 class="ui center aligned header">
+      Lightweight Key/Value Storage
+      <div class="sub header">Store your data simply and efficiently</div>
+    </h2>
+    
+    <div class="ui three column stackable grid" style="margin-top: 3rem;">
+      <div class="column">
+        <div class="ui center aligned basic segment">
+          <i class="huge database icon"></i>
+          <h3>Simple Storage</h3>
+          <p>Store any data as key/value pairs. Perfect for configuration, cache, or application data.</p>
+        </div>
+      </div>
+      <div class="column">
+        <div class="ui center aligned basic segment">
+          <i class="huge code icon"></i>
+          <h3>API Access</h3>
+          <p>Use our REST API to integrate with your applications. GET, POST, PUT, DELETE - it's that simple.</p>
+        </div>
+      </div>
+      <div class="column">
+        <div class="ui center aligned basic segment">
+          <i class="huge lightning icon"></i>
+          <h3>Lightning Fast</h3>
+          <p>Built for speed and reliability. Your data is always available when you need it.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="ui vertical segment" style="background-color: #f8f9fa;">
+  <div class="ui text container">
+    <h3 class="ui center aligned header">How it works</h3>
+    <div class="ui two column stackable grid">
+      <div class="column">
+        <h4>Web Interface</h4>
+        <div class="ui segment">
+          <div class="ui form">
+            <div class="two fields">
+              <div class="field">
+                <input type="text" placeholder="user:123" readonly>
+              </div>
+              <div class="field">
+                <input type="text" placeholder='{"name": "John", "active": true}' readonly>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <h4>API Usage</h4>
+        <div class="ui segment">
+          <pre style="background: none; border: none; padding: 0; margin: 0;"><code>POST /api/store
+{
+  "key": "user:123",
+  "value": {"name": "John", "active": true}
+}</code></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <script src="script.js"></script>
+</body>
+</html>
